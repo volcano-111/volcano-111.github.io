@@ -1,10 +1,10 @@
 const toggle = document.querySelector('.theme-toggle');
 const storedTheme = localStorage.getItem('portfolio-theme');
-if (storedTheme === 'light') document.body.classList.add('light');
+if (storedTheme === 'dark') document.body.classList.add('dark');
 
 toggle?.addEventListener('click', () => {
-  document.body.classList.toggle('light');
-  localStorage.setItem('portfolio-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  document.body.classList.toggle('dark');
+  localStorage.setItem('portfolio-theme', document.body.classList.contains('dark') ? 'dark' : 'light');
 });
 
 const revealItems = document.querySelectorAll('.project-card, .experience-row, .about-copy');
