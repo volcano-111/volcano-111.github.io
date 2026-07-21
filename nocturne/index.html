@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070a10" />
+    <meta name="description" content="NOCTURNE — 在浏览器中探索实时生成的电影化光影。" />
+    <title>NOCTURNE — Real-time visual studies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&family=Syne:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="is-loading">
+    <canvas id="stage" aria-label="实时生成艺术画布"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <div class="loader" id="loader" role="status" aria-live="polite">
+      <div class="loader__mark" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </div>
+      <div class="loader__copy">
+        <span>正在校准光场</span>
+        <strong id="loadPercent">00</strong>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Nocturne 首页">
+        <svg viewBox="0 0 42 42" aria-hidden="true">
+          <path d="M21 3.5a17.5 17.5 0 1 0 0 35 12.5 12.5 0 0 1 0-35Z" />
+          <circle cx="27.5" cy="14.5" r="2.5" />
+        </svg>
+        <span>NOCTURNE</span>
+      </a>
+      <nav aria-label="主导航">
+        <button class="nav-link is-active" data-panel-close>现场</button>
+        <button class="nav-link" data-panel="gallery">场景</button>
+        <button class="nav-link" data-panel="about">关于</button>
+      </nav>
+      <div class="edition"><span>实时研究</span><b>VOL. 01</b></div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="sceneTitle">
+        <div class="scene-index" aria-hidden="true">
+          <span id="currentIndex">01</span>
+          <i></i>
+          <span>03</span>
+        </div>
+        <div class="hero__copy">
+          <p class="eyebrow" id="sceneTag">引力习作 / 001</p>
+          <h1 id="sceneTitle">轨道<br />花园</h1>
+          <p class="scene-desc" id="sceneDesc">一枚被潮汐拉伸的光核，在寂静轨道上持续呼吸。</p>
+        </div>
+        <button class="drag-hint" id="dragHint" aria-label="拖动控制视角">
+          <span>拖动</span>
+          <svg viewBox="0 0 60 20" aria-hidden="true"><path d="M2 10h56M8 4 2 10l6 6M52 4l6 6-6 6" /></svg>
+          <span>观察</span>
+        </button>
+      </section>
+
+      <aside class="scene-rail" aria-label="切换场景">
+        <button class="scene-dot is-active" data-scene="0" aria-label="场景一：轨道花园"><span>01</span></button>
+        <button class="scene-dot" data-scene="1" aria-label="场景二：液态回声"><span>02</span></button>
+        <button class="scene-dot" data-scene="2" aria-label="场景三：琥珀裂隙"><span>03</span></button>
+      </aside>
+
+      <div class="bottom-bar">
+        <div class="author">
+          <span>视觉 / 代码</span>
+          <strong>NOCTURNE LAB</strong>
+        </div>
+        <div class="timeline">
+          <button id="playToggle" aria-label="暂停动画">
+            <svg class="pause-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" /></svg>
+            <svg class="play-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5z" /></svg>
+          </button>
+          <span id="elapsed">00:00</span>
+          <div class="timeline__track"><i id="progress"></i></div>
+          <span>∞</span>
+        </div>
+        <div class="quality">
+          <span>画质</span>
+          <button class="quality-option" data-quality="0.65">低</button>
+          <button class="quality-option is-active" data-quality="1">高</button>
+        </div>
+      </div>
+    </main>
+
+    <section class="panel" id="gallery" aria-hidden="true">
+      <div class="panel__head">
+        <p>场景档案 / 03</p>
+        <button class="close-panel" data-panel-close aria-label="关闭场景面板">关闭 <span>×</span></button>
+      </div>
+      <div class="gallery-list">
+        <button class="gallery-item" data-scene="0" data-panel-close>
+          <span>01</span><h2>轨道花园</h2><p>引力 / 光核</p><i>进入场景 ↗</i>
+        </button>
+        <button class="gallery-item" data-scene="1" data-panel-close>
+          <span>02</span><h2>液态回声</h2><p>反射 / 波形</p><i>进入场景 ↗</i>
+        </button>
+        <button class="gallery-item" data-scene="2" data-panel-close>
+          <span>03</span><h2>琥珀裂隙</h2><p>地层 / 热流</p><i>进入场景 ↗</i>
+        </button>
+      </div>
+    </section>
+
+    <section class="panel panel--about" id="about" aria-hidden="true">
+      <div class="panel__head">
+        <p>项目说明 / 2026</p>
+        <button class="close-panel" data-panel-close aria-label="关闭关于面板">关闭 <span>×</span></button>
+      </div>
+      <div class="about-grid">
+        <h2>让代码成为<br />一束可触摸的光。</h2>
+        <div class="about-copy">
+          <p>NOCTURNE 是一个浏览器内的实时生成艺术实验。每个场景都由片元着色器即时绘制，没有视频，也没有预渲染画面。</p>
+          <p>移动指针改变观察方向，选择右侧编号切换作品。所有运算都发生在你的设备上。</p>
+          <div class="tech"><span>WEBGL</span><span>GLSL</span><span>60 FPS</span></div>
+        </div>
+      </div>
+    </section>
+
+    <noscript>请启用 JavaScript 以观看实时视觉场景。</noscript>
+    <script src="app.js"></script>
+  </body>
+</html>
