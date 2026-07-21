@@ -7,7 +7,7 @@
   --accent: #a891ff;
   --accent-2: #d7ccff;
   --mono: 'DM Mono', monospace;
-  --sans: 'Manrope', sans-serif;
+  --sans: 'Noto Sans SC', 'Manrope', -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -28,7 +28,7 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--
 .eyebrow { display: flex; gap: 9px; align-items: center; color: var(--muted); }
 .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #72e1ae; box-shadow: 0 0 0 4px #72e1ae1a; }
 .hero h1 { font-size: clamp(48px, 7vw, 84px); line-height: 1.02; letter-spacing: -.08em; margin: 22px 0 26px; font-weight: 700; }
-.hero h1 em, h2 em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.07em; color: var(--accent-2); }
+.hero h1 em, h2 em { font-family: 'Noto Serif SC', 'Songti SC', SimSun, Georgia, serif; font-weight: 400; letter-spacing: -.07em; color: var(--accent-2); }
 .hero-intro { max-width: 460px; color: var(--muted); font-size: 17px; line-height: 1.7; }
 .hero-actions { display: flex; align-items: center; gap: 24px; margin-top: 34px; }
 .button { display: inline-flex; align-items: center; gap: 20px; text-decoration: none; border-radius: 4px; padding: 13px 16px; font-size: 13px; font-weight: 700; }
@@ -72,7 +72,7 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--
 .chart i:nth-child(1) { height: 26%; } .chart i:nth-child(2) { height: 38%; } .chart i:nth-child(3) { height: 31%; } .chart i:nth-child(4) { height: 56%; } .chart i:nth-child(5) { height: 48%; } .chart i:nth-child(6) { height: 73%; } .chart i:nth-child(7) { height: 62%; } .chart i:nth-child(8) { height: 92%; background: #7161bb; }
 .visual-pulse { background: #d5f1e3; color: #123e35; }
 .pulse-ring { position: absolute; width: 190px; height: 190px; border: 1px solid #548b7a; border-radius: 50%; left: 50%; top: 48%; transform: translate(-50%, -50%); box-shadow: 0 0 0 22px #b9e3d0, 0 0 0 45px #a7dac6; }
-.pulse-copy { position: absolute; left: 20px; bottom: 23px; font-size: 24px; line-height: 1; letter-spacing: -.07em; } .pulse-copy em { font-family: Georgia, serif; }
+.pulse-copy { position: absolute; left: 20px; bottom: 23px; font-size: 24px; line-height: 1.15; letter-spacing: -.07em; } .pulse-copy em { font-family: 'Noto Serif SC', 'Songti SC', SimSun, Georgia, serif; }
 .visual-form { background: #e4e1da; color: #232227; }
 .form-lines { position: absolute; left: 18%; top: 32%; width: 62%; display: grid; gap: 13px; }
 .form-lines span { display: block; height: 1px; background: #aaa59d; } .form-lines span:nth-child(2) { width: 80%; } .form-lines span:nth-child(3) { width: 90%; } .form-lines .short { width: 43%; }

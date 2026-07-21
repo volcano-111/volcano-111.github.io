@@ -1,13 +1,24 @@
-# Your Name — Personal Portfolio
+# 个人 Portfolio
 
-A static, GitHub Pages-ready personal portfolio inspired by the clean visual language of Astro and shadcn portfolios.
+一个中文个人作品集网站，采用 Astro / shadcn 风格的深色极简视觉，纯 HTML、CSS 和 JavaScript 实现，可直接部署到 GitHub Pages。
 
-## Customize
+## 修改个人信息
 
-1. Replace `Your Name`, the bio, project text, email, and social URLs in `index.html`.
-2. Adjust colors and typography at the top of `styles.css`.
-3. Open `index.html` locally to preview.
+编辑 `index.html`，替换以下内容：
 
-## Deploy with GitHub Pages
+- `你的名字`
+- `hello@example.com`
+- 个人介绍、项目、工作经历
+- GitHub 与 LinkedIn 链接
 
-Create a GitHub repository, push these three files to its default branch, then enable **Settings → Pages → Deploy from a branch** and choose the root folder.
+## 本地预览
+
+```bash
+python3 -m http.server 8000
+```
+
+然后打开 `http://localhost:8000`。
+
+## 部署到 GitHub Pages
+
+建议创建名为 `你的用户名.github.io` 的 GitHub 仓库，把本目录中的文件推送到 `main` 分支，然后在仓库的 **Settings → Pages** 中选择 **Deploy from a branch → main → /(root)**。
